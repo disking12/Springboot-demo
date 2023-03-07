@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:sqlserver://localhost:1433;databaseName=ITSCONV;encrypt=false
+    username: sa
+    password: Itsconv123!
+
+mybatis:
+  mapper-locations: static/mappers/*.xml
+  type-aliases-package: com.itsconv.board.mapper
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      zaxxer:
+        hikari: INFO
+    javax:
+      sql:
+        DataSource: OFF
+    jdbc:
+      audit: OFF            # JDBC ????? ??? ????? ?? ?? X
+      resultset: OFF        # ResultSet? ??? ?? JDBC ?? ??? ??
+      resultsettable: INFO  # SQL ?? ??? Table???? ??
+      sqlonly: OFF          # SQL? ??? ??
+      sqltiming: INFO         # SQL + ???? ??
+      connection : OFF        # ??? ??/?? ?? ??
